@@ -1,0 +1,56 @@
+<div>
+<form name="formulario"> 
+	<label>Gestion de Programas</label>
+	
+	<div class="form-group">
+		<label for="txtNombre">Nombre *</label>
+	    <input type="text" class="form-control" id="txtNombre" name="nombre" placeholder="Nombre" ng-model="programa.nombre" required>
+	</div>
+	
+  	<div class="form-group">
+    	<label for="txtFacultad">Facultad *</label>
+    	<input type="text" class="form-control" id="txtFacultad" name="facultad" placeholder="Facultad" ng-model="programa.facultad" required>
+  	</div>
+  	
+  	<div class="form-group">
+    	<label for="txtNroSemestres">Nro. Semestres *</label>
+    	<input type="text" class="form-control" id="txtNroSemestres" name="nroSemestres" placeholder="Nro Semestres" ng-model="programa.nroSemestres" required>
+  	</div>
+  	
+  	<div class="form-group">
+    	<label for="txtAnioCreacion">Anio Creacion *</label>
+    	<input type="text" class="form-control" id="txtAnioCreacion" name="anioCreacion" placeholder="Anio Creacion" ng-model="programa.anioCreacion" maxlength="4" required>
+  	</div>
+  	
+  	<div class="form-group">
+    	<label for="txtNroCreditos">Nro. Creditos *</label>
+    	<input type="text" class="form-control" id="txtNroCreditos" name="nroCreditos" placeholder="Nro Creditos" ng-model="programa.nroCreditos" required>
+  	</div>
+  	
+  	<div class="form-group">
+    	<label for="txtResRegCalidad">Resolucion Registro Calidad *</label>
+    	<input type="text" class="form-control" id="txtResRegCalidad" name="resRegCalidad" placeholder="Res. Reg. Calidad" ng-model="programa.resolucionRegistroCalidad" maxlength="50" required>
+  	</div>
+  	
+  	<button type="button" class="btn btn-success" ng-click="guardarPrograma()" ng-disabled="formulario.nombre.$invalid || formulario.facultad.$invalid || formulario.nroSemestres.$invalid || formulario.anioCreacion.$invalid || formulario.nroCreditos.$invalid || formulario.resRegCalidad.$invalid">Guardar</button>
+  	<button type="button" class="btn btn-second" ng-click="limpiar()">Limpiar</button>
+</form>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Facultad</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="programa in programas">
+			<td>{{programa.nombre}}</td>
+			<td>{{programa.facultad}}</td>
+			<td><button type="button" class="btn btn-info" ng-click="editarPrograma(programa)">Editar</button> <button type="button" class="btn btn-danger" ng-click="eliminarPrograma(programa.programasID)">Eliminar</button></td>
+		</tr>
+	</tbody>
+</table>
+
+</div>

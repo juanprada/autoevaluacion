@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel='stylesheet' href='./bower_components/bootstrap/dist/css/bootstrap.min.css' type='text/css' media='all' />
+	<link rel='stylesheet' href='./css/app.css' type='text/css' media='all' />
+    <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-route/angular-route.min.js"></script>
+	<script type='text/javascript' src='./bower_components/angular-loading-bar/build/loading-bar.min.js'></script>
+	<script type='text/javascript' src='./bower_components/angular-bootstrap/ui-bootstrap.min.js'></script>
+	<script type='text/javascript' src='./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
+	<script type="text/javascript" src="./app/app.js"></script>
+	<script type="text/javascript" src="./app/factoresController.js"></script>
+	<script type="text/javascript" src="./app/caracteristicasController.js"></script>
+	<script type="text/javascript" src="./app/indicadoresController.js"></script>
+	<script type="text/javascript" src="./app/programasController.js"></script>
+	<script type="text/javascript" src="./app/procesoAutoevaluacionController.js"></script>
+	<script type="text/javascript" src="./app/autoevaluacionController.js"></script>
+	<script type="text/javascript" src="./app/documentosProcesoController.js"></script>
+	<script type="text/javascript" src="./app/autoevaluacionDocumentosController.js"></script>
+	<script type="text/javascript" src="./app/informesAutoevaluacionController.js"></script>
+	<script type="text/javascript" src="./app/profesoresController.js"></script>
+	<script type="text/javascript" src="./app/estudiantesController.js"></script>
+	<script type="text/javascript" src="./app/parametrosController.js"></script>
+	<script type="text/javascript" src="./app/maestrosProgramasController.js"></script>
+	<script type="text/javascript" src="./service/factoresServices.js"></script>
+	<script type="text/javascript" src="./service/caracteristicasServices.js"></script>
+	<script type="text/javascript" src="./service/indicadoresServices.js"></script>
+	<script type="text/javascript" src="./service/programasServices.js"></script>
+	<script type="text/javascript" src="./service/autoevaluacionServices.js"></script>
+	<script type="text/javascript" src="./service/autoevaluacionDocumentosServices.js"></script>
+	<script type="text/javascript" src="./service/informesAutoevaluacionServices.js"></script>
+	<script type="text/javascript" src="./service/profesoresServices.js"></script>
+	<script type="text/javascript" src="./service/estudiantesServices.js"></script>
+	<script type="text/javascript" src="./service/parametrosServices.js"></script>
+  </head>
+  <body ng-app="myApp">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><img class="logo" src="./images/logo.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+  <div class="container-fluid">
+	  <div class="row">
+		   <div class="col-sm-3 col-md-2 sidebar">
+		   	<ul class="nav nav-sidebar">
+		   		<li>
+		   			<a class="nav-link" ng-href="#!/parametros">Parametros</a>
+		   		</li>
+		   		<li>
+		   			<a class="nav-link" ng-href="#!/programas">Programas</a>
+		   		</li>
+		   		<li>
+		   			<a class="nav-link" ng-href="#!/maestrosProgramas/-1">Maestros Programas</a>
+		   		</li>
+		   		<li>
+		   			<a class="nav-link" ng-href="#!/factores">Factores</a>
+		   		</li>
+		   		<li>
+		   			<a class="nav-link" ng-href="#!/caracteristicas">Caracteristicas</a>
+		   		</li>
+		   		<li>
+		   			<a class="nav-link" ng-href="#!/indicadores">Indicadores</a>
+		   		</li>
+		   		<li>
+		   			<a class="nav-link" ng-href="#!/procesoAutoevaluacion/-1">Proceso Autoevaluacion</a>
+		   		</li>
+		   	</ul>
+		   </div>
+		   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		 		<div ng-view></div>
+		 	</div>	
+		</div>
+	</div>
+   
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<div>
+<form name="formulario" class="form-inline"> 
+	<div class="form-group">
+		<label for="txtNombre">Periodo: </label>
+	    <input type="text" class="form-control" id="txtAnio" name="anio" ng-model="autoevaluacion.periodo" readonly>
+	</div>
+	
+  	<div class="form-group">
+    	<label for="cboPrograma">Programa: </label>
+    	<input type="text" class="form-control" id="txtAnio" name="anio" ng-model="autoevaluacion.programa.nombre" readonly>
+  	</div>
+  	
+  	<div class="regresar">
+  		<button type="button" class="btn btn-success" ng-click="regresarProcesoAutoevaluacion()">Regresar</button>
+  	</div>
+</form>
+<div class="div-opciones-autoevaluacion">
+	<form class="form-inline" >
+		<div class="form-group">
+		    <input type="file" id="inputFile" onchange="angular.element(this).scope().uploadedFile(this)">
+		</div>
+		<button type="button" class="btn btn-success" ng-click="cargarArchivo()" >Cargar</button>
+	</form>
+	<div>
+		<label class="col-form-label">Documentos Publicados</label>
+		 <table class="table">
+		 	<thead>
+				<tr>
+					<th>Nombre</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="documento in documentos">
+					<td>{{documento.archivo}}</td>
+					<td><button type="button" class="btn btn btn-info">
+							<a href="http://localhost:80/autoevaluacion/files/{{documento.archivo}}" >
+								<span class="glyphicon glyphicon-download-alt"></span>
+							</a>
+						</button>
+						<button type="button" class="btn btn btn-danger" ng-click = "eliminarDocumento(documento)">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>

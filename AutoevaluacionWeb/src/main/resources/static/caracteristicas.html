@@ -1,0 +1,42 @@
+<div>
+<form name="formulario"> 
+	<label>Gestion de Caracteristicas</label>
+	
+	<div class="form-group">
+		<label for="txtNombre">Nombre *</label>
+	    <input type="text" class="form-control" id="txtNombre" name="nombre" ng-model="caracteristica.nombre" placeholder="Nombre" required>
+	</div>
+	
+  	<div class="form-group">
+    	<label for="txtDescripcion">Descripcion *</label>
+    	<textarea class="form-control" rows="5" id="txtDescripcion" name="descripcion" ng-model="caracteristica.descripcion" placeholder="Descripcion" required></textarea>
+  	</div>
+  	
+  	<div class="form-group">
+    	<label for="cboFactor">Factor *</label>
+    	<select class="form-control" id="cboFactor" name="factor" ng-model="caracteristica.factor.factorID" ng-options="factor.factorID as factor.nombre for factor in factores" required></select>
+  	</div>
+  	
+  	<button type="button" ng-click="guardarCaracteristica()" class="btn btn-success" ng-disabled="formulario.nombre.$invalid || formulario.descripcion.$invalid || formulario.factor.$invalid">Guardar</button>
+  	<button type="button" class="btn btn-second" ng-click="limpiar()">Limpiar</button>
+</form>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Descripcion</th>
+			<th>Factor</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="caracteristica in caracteristicas">
+			<td>{{caracteristica.nombre}}</td>
+			<td>{{caracteristica.descripcion}}</td>
+			<td>{{caracteristica.factor.nombre}}</td>
+			<td><button type="button" class="btn btn-info" ng-click="editarCaracteristica(caracteristica)">Editar</button> <button type="button" class="btn btn-danger" ng-click="eliminarCaracteristica(caracteristica.caracteristicaId)">Eliminar</button></td>
+		</tr>
+	</tbody>
+</table>
+</div>

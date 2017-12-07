@@ -1,0 +1,50 @@
+<div>
+<button type="button" class="btn btn-success" ng-click="irMaestrosProgramas()">Regresar</button>
+<br>
+
+<label>Gestion de Estudiantes</label>
+<div class="table-responsive">          
+	<table class="table table-bordered table-hover">
+	<thead>
+	  <tr>        
+		<th>Periodo</th>
+		<th>Est. inscritos</th>
+		<th>Est. matriculados</th>
+		<th>Primiparos</th>
+		<th>Egresados</th>
+		<th>Graduados</th>
+		<th>Admitidos</th>
+		<th>Retirados</th>
+		<th>Tasa Desercion</th>
+		<th>% Terminan Carrera</th>
+		<th># Est IES Nales</th>
+		<th># Est IES Iternales</th>
+		<th># Est Visit Nales</th>
+		<th># Est Visit Internales</th>
+		<th></th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr ng-repeat="estudiante in estudiantes">
+		<td><input id="fname" name="fname" required="required" type="text" ng-model="estudiante.periodo"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.inscritos"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.matriculados"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.primiparos"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.egresados"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.graduados"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.admitidos"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.retirados"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.tasaDesercion"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.porcentajeCulminan"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.nroEstudiantesOtrasIESNales"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.nroEstudiantesOtrasIESInternales"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.nroEstudiantesVisitaNales"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="estudiante.nroEstudiantesVisitaInternales"></td>
+		<td><button type="button" class="btn btn-success" ng-click="guardarEstudiante(estudiante)" >Guardar</button></td>
+	  </tr>
+	</tbody>
+  </table>
+  <button ng-click="adicionarEstudiante()">Adicionar</button>
+</div>
+
+</div>

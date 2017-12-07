@@ -1,0 +1,15 @@
+<div>
+<label>Maestros Programa</label>
+<form name="formulario" class="form-inline"> 
+  	<div class="form-group">
+    	<label for="cboPrograma">Programa *</label>
+    	<select class="form-control" id="cboPrograma" name="programa" ng-model = "programa.programasID" ng-options="programa.programasID as programa.nombre for programa in programas" ng-change="mostrarOpcion()" required></select>
+  	</div>
+</form>
+
+<div ng-show="programasValida">
+	<button type="button" ng-click="irProfesores()" class="btn btn-success">Profesores</button>
+	<button type="button" ng-click="irEstudiantes()" class="btn btn-success">Estudiantes</button>
+</div>
+
+</div>

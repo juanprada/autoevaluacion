@@ -1,0 +1,29 @@
+<div>
+<label>Proceso Autoevaluacion</label>
+<form name="formulario" class="form-inline"> 
+	
+	<div class="form-group">
+		<label for="txtNombre">Periodo *</label>
+	    <input type="text" class="form-control" id="txtAnio" name="anio" ng-model="anio" placeholder="Anio (AAAA)" maxlength="4" required>-
+	    <select class="form-control" id="cboSemestre" name="semestre" ng-model="semestre" placeholder="Semestre" required>
+	    	<option>--Semestre--</option>
+	    	<option value="01">01</option>
+	    	<option value="02">02</option>
+	    </select>
+	</div>
+	
+  	<div class="form-group">
+    	<label for="cboPrograma">Programa *</label>
+    	<select class="form-control" id="cboPrograma" name="programa" ng-model = "autoevaluacion.programa.programasID" ng-options="programa.programasID as programa.nombre for programa in programas" required></select>
+  	</div>
+  	<button type="button" ng-click="buscarAutoevaluacion()" class="btn btn-success" ng-disabled="formulario.anio.$invalid || formulario.semestre.$invalid || formulario.programa.$invalid">Buscar</button>
+  	<button type="button" ng-click="crearProceso()" class="btn btn-success" ng-disabled="formulario.anio.$invalid || formulario.semestre.$invalid || formulario.programa.$invalid">Crear</button>
+</form>
+
+<div ng-show="autoevaluacionValida" class="div-opciones-autoevaluacion">
+	<button type="button" ng-click="irAutoevaluacion()" class="btn boton-autoevaluacion">Autoevaluacion</button>
+	<button type="button" ng-click="irDocumentacion()" class="btn boton-autoevaluacion">Documentacion</button>
+	<button type="button" ng-click="irInformes()" class="btn boton-autoevaluacion">Informes</button>
+</div>
+
+</div>

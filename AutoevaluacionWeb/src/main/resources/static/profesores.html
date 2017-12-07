@@ -1,0 +1,96 @@
+<div>
+<button type="button" class="btn btn-success" ng-click="irMaestrosProgramas()">Regresar</button>
+<br>
+
+<label>Gestion de Profesores</label>
+<div class="table-responsive">          
+	<table class="table table-bordered table-hover">
+	<thead>
+	  <tr>        
+		<th>Nombres</th>
+		<th>Apellidos</th>
+		<th>Tipo Identificacion</th>
+		<th>Cedula</th>
+		<th>Nivel Academico</th>
+		<th>Area Conocimiento</th>
+		<th>Titulo</th>
+		<th>Institucion Titulo</th>
+		<th>Dedicacion</th>
+		<th># Horas</th>
+		<th># Horas Docencia</th>
+		<th># Horas Investigacion</th>
+		<th># Horas Extension</th>
+		<th>Forma Contratacion</th>
+		<th></th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr ng-repeat="profesor in profesores">
+		<td><input id="fname" name="fname" required="required" type="text" ng-model="profesor.nombres"></td>
+		<td><input id="fname" name="fname" required="required" type="text" ng-model="profesor.apellidos"></td>
+		<td>
+			<select id="cboTipoIdentificacion" name="tipoIdentificacion" ng-model="profesor.tipoIdentificacion" placeholder="Tipo Identificacion" required>
+		    	<option>--Tipo Identificacion--</option>
+		    	<option value="Cedula">Cedula</option>
+		    	<option value="Extranjeria">Extranjeria</option>
+	    	</select>
+	    </td>
+		<td><input id="fname" name="fname" required="required" type="text" ng-model="profesor.cedula"></td>
+		<td>
+			<select id="cboNivelAcademico" placeholder="Nivel Academico" ng-model="profesor.nivelAcademico" required>
+		    	<option>--Nivel Academico--</option>
+		    	<option value="Sin Nivel Academico Definido">Sin Nivel Academico Definido</option>
+		    	<option value="Tecnica Profesional">Tecnica Profesional</option>
+		    	<option value="Tecnologica">Tecnologica</option>
+		    	<option value="Especializacion Tecnica Profesional">Especializacion Tecnica Profesional</option>
+		    	<option value="Especializacion Tecnologica">Especializacion Tecnologica</option>
+		    	<option value="Universitaria">Universitaria</option>
+		    	<option value="Especializacion Universitaria">Especializacion Universitaria</option>
+		    	<option value="Maestria">Maestria</option>
+		    	<option value="Doctorado">Doctorado</option>
+		    	<option value="PostDoctorado">PostDoctorado</option>
+	    	</select>
+		</td>
+		<td>
+			<select id="cboAreaConocimiento" placeholder="Area Conocimiento" ng-model="profesor.areaConocimiento" required>
+		    	<option>--Area Conocimiento--</option>
+		    	<option value="Educacion">Educacion</option>
+		    	<option value="Artes y Humanidades">Artes y Humanidades</option>
+		    	<option value="Ciencias Sociales">Ciencias Sociales</option>
+		    	<option value="Administracion de Empresas y Derecho">Administracion de Empresas y Derecho</option>
+		    	<option value="Ciencias Naturales, Matematicas y Estadistica">Ciencias Naturales, Matematicas y Estadistica</option>
+		    	<option value="Tecnologias de la Informacion y la Comunicacion (TIC)">Tecnologias de la Informacion y la Comunicacion (TIC)</option>
+		    	<option value="Ingenieria Industria y Construccion">Ingenieria Industria y Construccion</option>
+		    	<option value="Agricultura, Silvicultura, Pesca y Veterinaria">Agricultura, Silvicultura, Pesca y Veterinaria</option>
+		    	<option value="Salud y Bienestar">Salud y Bienestar</option>
+		    	<option value="Servicios">Servicios</option>
+		    </select>
+		</td>
+		<td><input id="fname" name="fname" required="required" type="text" ng-model="profesor.titulo"></td>
+		<td><input id="fname" name="fname" required="required" type="text" ng-model="profesor.institucion"></td>
+		<td>
+			<select id="cboDedicacion" placeholder="Dedicacion" ng-model="profesor.dedicacion" required>
+		    	<option>--Dedicacion--</option>
+		    	<option value="Tiempo completo">Tiempo completo</option>
+		    	<option value="Catedra">Catedra</option>
+		    </select>
+	    </td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="profesor.numeroHoras"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="profesor.horasDedicacionDocencia"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="profesor.horasInvestigacion"></td>
+		<td><input id="fname" name="fname" required="required" type="number" ng-model="profesor.horasExtension"></td>
+		<td>
+			<select id="cboFormaContratacion" placeholder="Forma Contratacion" ng-model="profesor.formaContratacion" required>
+		    	<option>--Dedicacion--</option>
+		    	<option value="Termino Indefinido">Termino Indefinido</option>
+		    	<option value="Termino Fijo">Termino Fijo</option>
+		    </select>
+		</td>
+		<td><button type="button" class="btn btn-success" ng-click="guardarProfesor(profesor)" >Guardar</button></td>
+	  </tr>
+	</tbody>
+  </table>
+  <button ng-click="adicionarProfesor()">Adicionar</button>
+</div>
+
+</div>

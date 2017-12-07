@@ -1,0 +1,18 @@
+<div>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Descripcion</th>
+			<th>Valor</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="parametro in parametros">
+			<td>{{parametro.descripcion}}</td>
+			<td><input type="text" class="form-control" id="txtValor" name="valor" ng-model="parametro.valor" required></td>
+			<td><button type="button" class="btn btn-info" ng-click="actualizarParametro(parametro)">Guardar</button></td>
+		</tr>
+	</tbody>
+</table>
+</div>

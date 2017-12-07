@@ -1,0 +1,39 @@
+<div class="modal-header">
+	<h4 class="modal-title">Documentos</h4>
+</div>
+<div class="modal-body">
+	<form class="form-inline">
+		<div class="form-group">
+		    <input type="file" id="inputFile" onchange="angular.element(this).scope().uploadedFile(this)">
+		</div>
+		<button type="button" class="btn btn-success" ng-click="cargarArchivo()" >Cargar</button>
+	</form>
+	<div>
+		<label class="col-form-label">Documentos Publicados</label>
+		 <table class="table">
+		 	<thead>
+				<tr>
+					<th>Nombre</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="documento in documentos">
+					<td>{{documento.archivo}}</td>
+					<td><button type="button" class="btn btn btn-info">
+							<a href="http://localhost:80/autoevaluacion/files/{{documento.archivo}}" >
+								<span class="glyphicon glyphicon-download-alt"></span>
+							</a>
+						</button>
+						<button type="button" class="btn btn btn-danger" ng-click = "eliminarDocumento(documento)" ng-show="sePuedeEliminar(documento)">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="modal-footer">
+</div>

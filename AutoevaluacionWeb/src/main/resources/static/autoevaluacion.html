@@ -1,0 +1,67 @@
+<div>
+<label>Autoevaluacion</label>
+<form name="formulario" class="form-inline"> 
+	<div class="form-group">
+		<label for="txtNombre">Periodo: </label>
+	    <input type="text" class="form-control" id="txtAnio" name="anio" ng-model="autoevaluacion.periodo" readonly>
+	</div>
+	
+  	<div class="form-group">
+    	<label for="cboPrograma">Programa: </label>
+    	<input type="text" class="form-control" id="txtAnio" name="anio" ng-model="autoevaluacion.programa.nombre" readonly>
+  	</div>
+  	
+  	<div class="regresar">
+  		<button type="button" class="btn btn-success" ng-click="regresarProcesoAutoevaluacion()">Regresar</button>
+  	</div>
+</form>
+<br>
+<uib-accordion close-others="oneAtATime">
+		<div uib-accordion-group class="panel-default" is-open="status.open" ng-repeat="factor in factores">
+		    <uib-accordion-heading>
+		      {{factor.nombre}} <i class="pull-right glyphicon">{{promedioFactor(factor.caracteristicas) | number:2}}</i>
+		    </uib-accordion-heading>
+		    
+		    <div uib-accordion-group class="panel-default" ng-repeat="caracteristica in factor.caracteristicas">
+			    <uib-accordion-heading>
+			      {{caracteristica.nombre}}<i class="pull-right glyphicon">{{promedioCaracteristica(caracteristica.indicadores) | number:2}}</i>
+			    </uib-accordion-heading>
+			    	<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Calificacion</th>
+								<th>Documentos</th>
+								<th>Observaciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="indicador in caracteristica.indicadores">
+								<td>{{indicador.nombre}}</td>
+								<td><input type="number" value="0" max="100" min="-1" ng-model="indicador.calificacion"/></td>
+								<td><button type="button" class="btn btn-second" ng-click="adminDocumentos(indicador)">Documentos</button></td>
+								<td><button type="button" class="btn btn-second" ng-click="abrirObservaciones(indicador)" ng-disabled="indicador.calificacion <= 0">Observaciones</button></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+</uib-accordion>
+<button type="button" class="btn btn-success" ng-click="guardarEvaluacion()">Guardar</button>
+</div>
+<script type="text/ng-template" id="modalObservaciones.html">
+	<div class="modal-header">
+		<h4 class="modal-title">Observaciones</h4>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="form-group">
+		    	<label for="txtObservaciones">Observaciones *</label>
+    			<textarea class="form-control" rows="5" id="txtObservaciones" name="observaciones" placeholder="Observaciones" ng-model="indicador.observaciones" required></textarea>
+			</div>
+			<button type="button" class="btn btn-success" ng-click="guardarObservaciones()" >Guardar</button>
+		</form>
+	</div>
+	<div class="modal-footer">
+	</div>
+</script>

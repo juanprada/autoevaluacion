@@ -1,0 +1,47 @@
+<div>
+<form name="formulario"> 
+	<label>Gestion de Indicadores</label>
+	
+	<div class="form-group">
+		<label for="txtNombre">Nombre *</label>
+	    <input type="text" class="form-control" id="txtNombre" name="nombre" placeholder="Nombre" ng-model="indicador.nombre" required>
+	</div>
+	
+  	<div class="form-group">
+    	<label for="txtDescripcion">Descripcion *</label>
+    	<textarea class="form-control" rows="5" id="txtDescripcion" name="descripcion" placeholder="Descripcion" ng-model="indicador.descripcion" required></textarea>
+  	</div>
+  	
+  	<div class="form-group">
+    	<label for="cboCaracteristica">Caracteristica *</label>
+    	<select class="form-control" id="cboCaracteristica" name="caracteristica" ng-model = "indicador.caracteristica.caracteristicaId" ng-options="caracteristica.caracteristicaId as caracteristica.nombre for caracteristica in caracteristicas" required></select>
+  	</div>
+  	
+  	<div class="form-group" ng-show="!indicador.indicadorID == undefined || indicador.indicadorID != null">
+	   <button type="button" class="btn btn-second" ng-click="adminDocumentos()">Documentos</button>
+	 </div>
+  	
+  	<button type="button" class="btn btn-success" ng-click="guardarIndicador()" ng-disabled="formulario.nombre.$invalid || formulario.descripcion.$invalid || formulario.caracteristica.$invalid">Guardar</button>
+  	<button type="button" class="btn btn-second" ng-click="limpiar()">Limpiar</button>
+</form>
+
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Descripcion</th>
+			<th>Caracteristica</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="indicador in indicadores">
+			<td>{{indicador.nombre}}</td>
+			<td>{{indicador.descripcion}}</td>
+			<td>{{indicador.caracteristica.nombre}}</td>
+			<td><button type="button" class="btn btn-info" ng-click="editarIndicador(indicador)">Editar</button> <button type="button" class="btn btn-danger" ng-click="eliminarIndicador(indicador.indicadorID)">Eliminar</button></td>
+		</tr>
+	</tbody>
+</table>
+</div>
